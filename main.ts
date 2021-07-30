@@ -1,3 +1,12 @@
+namespace SpriteKind {
+    export const ziiuum = SpriteKind.create()
+    export const JEDZENIEEE = SpriteKind.create()
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.JEDZENIEEE, function (sprite, otherSprite) {
+    info.changeLifeBy(1)
+    music.baDing.playUntilDone()
+    otherSprite.destroy()
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Food, function (sprite, otherSprite) {
     uwu = randint(1, 30)
     if (uwu == 1) {
@@ -12,62 +21,70 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
     info.changeLifeBy(-1)
 })
 info.onLifeZero(function () {
-    game.over(false)
+    if (info.score() > info.highScore()) {
+        game.over(true)
+    } else {
+        game.over(false)
+    }
 })
 controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
     if (randint(1, 2) == 2) {
         projectile = sprites.createProjectileFromSprite(img`
             2 2 2 2 
             2 2 2 2 
-            `, mySprite, 5000, 1)
+            `, mySprite, 10000, randint(-100, 100))
         projectile.setPosition(projectile.x + randint(10, 30), projectile.y + randint(-10, 10))
         projectile_222 = sprites.createProjectileFromSprite(img`
             a a a a 
             a a a a 
-            `, mySprite, 5000, 1)
+            `, mySprite, 10000, randint(-100, 100))
         projectile_222.setPosition(projectile_222.x + randint(10, 30), projectile_222.y + randint(-10, 10))
     }
     if (randint(1, 2) == 2) {
         ewfefagegr = sprites.createProjectileFromSprite(img`
             7 7 7 7 
             7 7 7 7 
-            `, mySprite, 5000, 1)
+            `, mySprite, 10000, randint(-100, 100))
         ewfefagegr.setPosition(ewfefagegr.x + randint(10, 30), ewfefagegr.y + randint(-10, 10))
         eawfeger_222 = sprites.createProjectileFromSprite(img`
             3 3 3 3 
             3 3 3 3 
-            `, mySprite, 5000, 1)
+            `, mySprite, 10000, randint(-100, 100))
         eawfeger_222.setPosition(eawfeger_222.x + randint(10, 30), eawfeger_222.y + randint(-10, 10))
     }
     if (randint(1, 2) == 2) {
         aefweferr = sprites.createProjectileFromSprite(img`
             9 9 9 9 
             9 9 9 9 
-            `, mySprite, 5000, 1)
+            `, mySprite, 10000, randint(-100, 100))
         aefweferr.setPosition(aefweferr.x + randint(10, 30), aefweferr.y + randint(-10, 10))
         aeffeger_222 = sprites.createProjectileFromSprite(img`
             8 8 8 8 
             8 8 8 8 
-            `, mySprite, 5000, 1)
+            `, mySprite, 10000, randint(-100, 100))
         aeffeger_222.setPosition(aeffeger_222.x + randint(10, 30), aeffeger_222.y + randint(-10, 10))
     }
 })
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.ziiuum, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    sprite.destroy()
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeLifeBy(1)
-    music.powerUp.playUntilDone()
+    music.baDing.playUntilDone()
     otherSprite.destroy()
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    uwu = randint(1, 40)
+    uwu = randint(1, 80)
     if (uwu == 1) {
         music.pewPew.play()
         otherSprite.destroy()
         info.changeScoreBy(9999999)
     }
 })
-let mySprite2: Sprite = null
 let ENEmyeswwfe: Sprite = null
 let w4ats5e4yt5y5yyw5434y5 = 0
+let mySprite2: Sprite = null
 let aeffeger_222: Sprite = null
 let aefweferr: Sprite = null
 let eawfeger_222: Sprite = null
@@ -77,6 +94,129 @@ let projectile: Sprite = null
 let uwu = 0
 let mySprite: Sprite = null
 scene.setBackgroundColor(15)
+let mySprite3 = sprites.create(img`
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    f f 
+    `, SpriteKind.ziiuum)
+mySprite3.setPosition(0, 60)
 let svsweewfge = randint(1000, 2000)
 mySprite = sprites.create(img`
     ....555555555555555555555555
@@ -99,6 +239,43 @@ mySprite = sprites.create(img`
 info.setLife(3)
 mySprite.setPosition(20, 60)
 controller.moveSprite(mySprite, 100, 100)
+game.onUpdateInterval(14000, function () {
+    mySprite2 = sprites.create(img`
+        ..........55555555555555555555..........
+        ..........55555555555555555555..........
+        ..........55555555555555555555..........
+        ..........55555555555555555555..........
+        ..........55555555555555555555..........
+        ..........55555555555555555555..........
+        ..........55555555555555555555..........
+        ..........55555555555555555555..........
+        ..........55555555555555555555..........
+        ..........55555555555555555555..........
+        9999999999333333333355555555555555555555
+        9999999999333333333355555555555555555555
+        9999999999333333333355555555555555555555
+        9999999999333333333355555555555555555555
+        9999999999333333333355555555555555555555
+        9999999999333333333355555555555555555555
+        9999999999333333333355555555555555555555
+        9999999999333333333355555555555555555555
+        9999999999333333333355555555555555555555
+        9999999999333333333355555555555555555555
+        ..........555555555555555555555555555555
+        ..........555555555555555555555555555555
+        ..........555555555555555555555555555555
+        ..........555555555555555555555555555555
+        ..........555555555555555555555555555555
+        ..........555555555555555555555555555555
+        ..........555555555555555555555555555555
+        ..........555555555555555555555555555555
+        ..........555555555555555555555555555555
+        ..........555555555555555555555555555555
+        `, SpriteKind.JEDZENIEEE)
+    mySprite2.setPosition(160, randint(8, 112))
+    mySprite2.setVelocity(-50, 0)
+    mySprite2.startEffect(effects.trail)
+})
 game.onUpdateInterval(svsweewfge, function () {
     w4ats5e4yt5y5yyw5434y5 = randint(1, 13)
     if (w4ats5e4yt5y5yyw5434y5 == 1) {
@@ -149,26 +326,26 @@ game.onUpdateInterval(svsweewfge, function () {
             `, SpriteKind.Enemy)
     } else if (w4ats5e4yt5y5yyw5434y5 == 3) {
         ENEmyeswwfe = sprites.create(img`
-            ....88888888........
-            ....88888888........
-            ....88888888........
-            ....88888888........
-            1111ffff11118888....
-            1111ffff11118888....
-            1111ffff11118888....
-            1111ffff11118888....
-            ....888888888888....
-            ....888888888888....
-            ....888888888888....
-            ....888888888888....
-            ........88888888....
-            ........88888888....
-            ........88888888....
-            ........88888888....
-            ............88888888
-            ............88888888
-            ............88888888
-            ............88888888
+            ....33333333........
+            ....33333333........
+            ....33333333........
+            ....33333333........
+            1111ffff11113333....
+            1111ffff11113333....
+            1111ffff11113333....
+            1111ffff11113333....
+            ....333333333333....
+            ....333333333333....
+            ....333333333333....
+            ....333333333333....
+            ........33333333....
+            ........33333333....
+            ........33333333....
+            ........33333333....
+            ............33333333
+            ............33333333
+            ............33333333
+            ............33333333
             `, SpriteKind.Enemy)
     } else if (w4ats5e4yt5y5yyw5434y5 == 4) {
         ENEmyeswwfe = sprites.create(img`
@@ -195,26 +372,26 @@ game.onUpdateInterval(svsweewfge, function () {
             `, SpriteKind.Enemy)
     } else if (w4ats5e4yt5y5yyw5434y5 == 5) {
         ENEmyeswwfe = sprites.create(img`
-            ....cccccccc........
-            ....cccccccc........
-            ....cccccccc........
-            ....cccccccc........
-            1111ffff1111cccc....
-            1111ffff1111cccc....
-            1111ffff1111cccc....
-            1111ffff1111cccc....
-            ....cccccccccccc....
-            ....cccccccccccc....
-            ....cccccccccccc....
-            ....cccccccccccc....
-            ........cccccccc....
-            ........cccccccc....
-            ........cccccccc....
-            ........cccccccc....
-            ............cccccccc
-            ............cccccccc
-            ............cccccccc
-            ............cccccccc
+            ....33333333........
+            ....33333333........
+            ....33333333........
+            ....33333333........
+            1111ffff11113333....
+            1111ffff11113333....
+            1111ffff11113333....
+            1111ffff11113333....
+            ....333333333333....
+            ....333333333333....
+            ....333333333333....
+            ....333333333333....
+            ........33333333....
+            ........33333333....
+            ........33333333....
+            ........33333333....
+            ............33333333
+            ............33333333
+            ............33333333
+            ............33333333
             `, SpriteKind.Enemy)
     } else if (w4ats5e4yt5y5yyw5434y5 == 6) {
         ENEmyeswwfe = sprites.create(img`
@@ -310,26 +487,26 @@ game.onUpdateInterval(svsweewfge, function () {
             `, SpriteKind.Enemy)
     } else if (w4ats5e4yt5y5yyw5434y5 == 10) {
         ENEmyeswwfe = sprites.create(img`
-            ....bbbbbbbb........
-            ....bbbbbbbb........
-            ....bbbbbbbb........
-            ....bbbbbbbb........
-            1111ffff1111bbbb....
-            1111ffff1111bbbb....
-            1111ffff1111bbbb....
-            1111ffff1111bbbb....
-            ....bbbbbbbbbbbb....
-            ....bbbbbbbbbbbb....
-            ....bbbbbbbbbbbb....
-            ....bbbbbbbbbbbb....
-            ........bbbbbbbb....
-            ........bbbbbbbb....
-            ........bbbbbbbb....
-            ........bbbbbbbb....
-            ............bbbbbbbb
-            ............bbbbbbbb
-            ............bbbbbbbb
-            ............bbbbbbbb
+            ....33333333........
+            ....33333333........
+            ....33333333........
+            ....33333333........
+            1111ffff11113333....
+            1111ffff11113333....
+            1111ffff11113333....
+            1111ffff11113333....
+            ....333333333333....
+            ....333333333333....
+            ....333333333333....
+            ....333333333333....
+            ........33333333....
+            ........33333333....
+            ........33333333....
+            ........33333333....
+            ............33333333
+            ............33333333
+            ............33333333
+            ............33333333
             `, SpriteKind.Enemy)
     } else if (w4ats5e4yt5y5yyw5434y5 == 11) {
         ENEmyeswwfe = sprites.create(img`
@@ -356,26 +533,26 @@ game.onUpdateInterval(svsweewfge, function () {
             `, SpriteKind.Enemy)
     } else if (w4ats5e4yt5y5yyw5434y5 == 12) {
         ENEmyeswwfe = sprites.create(img`
-            ....dddddddd........
-            ....dddddddd........
-            ....dddddddd........
-            ....dddddddd........
-            1111ffff1111dddd....
-            1111ffff1111dddd....
-            1111ffff1111dddd....
-            1111ffff1111dddd....
-            ....dddddddddddd....
-            ....dddddddddddd....
-            ....dddddddddddd....
-            ....dddddddddddd....
-            ........dddddddd....
-            ........dddddddd....
-            ........dddddddd....
-            ........dddddddd....
-            ............dddddddd
-            ............dddddddd
-            ............dddddddd
-            ............dddddddd
+            ....33333333........
+            ....33333333........
+            ....33333333........
+            ....33333333........
+            1111ffff11113333....
+            1111ffff11113333....
+            1111ffff11113333....
+            1111ffff11113333....
+            ....333333333333....
+            ....333333333333....
+            ....333333333333....
+            ....333333333333....
+            ........33333333....
+            ........33333333....
+            ........33333333....
+            ........33333333....
+            ............33333333
+            ............33333333
+            ............33333333
+            ............33333333
             `, SpriteKind.Enemy)
     } else {
         ENEmyeswwfe = sprites.create(img`
@@ -406,19 +583,7 @@ game.onUpdateInterval(svsweewfge, function () {
     ENEmyeswwfe.startEffect(effects.trail)
     svsweewfge = randint(1000, 2000)
 })
-forever(function () {
-    svsweewfge = randint(1000, 2000)
-    mySprite.setStayInScreen(true)
-    if (info.score() == 50) {
-        game.over(true)
-    }
-})
-forever(function () {
-    if (true) {
-        svsweewfge = randint(1000, 2000)
-    }
-})
-game.onUpdateInterval(6000, function () {
+game.onUpdateInterval(4000, function () {
     mySprite2 = sprites.create(img`
         ..........77777777777777777777..............................
         ..........77777777777777777777..............................
@@ -484,4 +649,20 @@ game.onUpdateInterval(6000, function () {
     mySprite2.setPosition(160, randint(8, 112))
     mySprite2.setVelocity(-50, 0)
     mySprite2.startEffect(effects.trail)
+})
+forever(function () {
+    svsweewfge = randint(1000, 2000)
+    mySprite.setStayInScreen(true)
+    if (info.score() == 50) {
+        game.over(true)
+    }
+})
+forever(function () {
+    music.playMelody("G G B E C5 C5 E B ", 110)
+    music.playMelody("G G B E C5 B E B ", 110)
+})
+forever(function () {
+    if (true) {
+        svsweewfge = randint(1000, 2000)
+    }
 })
